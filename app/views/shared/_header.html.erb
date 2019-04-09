@@ -2,20 +2,20 @@
 
 <% if current_member %>
   <ul class="account-menu">
-    <%= menu_link_to current_member.name + "さん", :account %>
-    <%= menu_link_to "ログアウト", :session,
+    <%= link_to current_member.name + "さん", :account %>
+    <%= link_to "ログアウト", :session,
             method: :delete, data: { confirm: "ログアウトしますか？" } %>
   </ul>
 <% end %>
 
 <nav class="menubar">
   <ul>
-    <%= menu_link_to "TOP", :root %>
-    <%= menu_link_to "ニュース", "#" %>
-    <%= menu_link_to "ブログ", "#" %>
+    <%= link_to "TOP", :root %>
+    <%= link_to "ニュース", "#" %>
+    <%= link_to "ブログ", "#" %>
     <% if current_member %>
-    <%= menu_link_to "会員名簿", :members %>
-    <%= menu_link_to "管理ページ", "#" %>
+    <%= link_to "会員名簿", :members %>
+    <%= link_to "管理ページ", "#" %>
     <% end %>
   </ul>
 </nav>
