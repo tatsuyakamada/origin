@@ -4,11 +4,13 @@ class MembersController < ApplicationController
   #会員一覧
   def index
     @members = Member.order("number")
+      .page(params[:page]).per(15)
   end
 
   def search
     @members = Member.search(params[:q])
     render "index"
+      .page(params[:page]).per(15)
   end
 
   def show
