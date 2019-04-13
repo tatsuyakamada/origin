@@ -16,7 +16,7 @@
       <% @articles.each do |article| %>
       <tr>
         <td><%= link_to article.title, article %></td>
-        <td><%= article.relesed_at.srtftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= article.relesed_at.strftime("%Y/%m/%d %H:%M") %></td>
         <td>
           <%= link_to "編集", [:edit, article] %>
           <%= link_to "削除", article, method: :delete,
@@ -29,4 +29,3 @@
   <% else %>
     <p>ニュースがありません。</p>
   <% end %>
-    
