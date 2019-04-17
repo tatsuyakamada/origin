@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  validates :title, :body, :relesed_at, presence: true
+  validates :title, :body, :released_at, presence: true
   validates :title, length: {maximum: 80}
   validates :body, length: {maximum: 2000}
 
@@ -16,7 +16,7 @@ class Article < ApplicationRecord
   end
 
   validate do
-    if expired_at && expired_at < relesed_at
+    if expired_at && expired_at < released_at
       errors.add(:expired_at, :expired_at_too_old)
     end
   end
@@ -27,7 +27,7 @@ class Article < ApplicationRecord
   scope :visible, -> do
     now = Time.current
 
-    where("relesed_at <= ?", now)
+    where("released_at <= ?", now)
       .where("expired_at > ? OR expired_at IS NULL", now)
     end
   end

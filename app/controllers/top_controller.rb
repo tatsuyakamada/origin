@@ -1,6 +1,6 @@
 class TopController < ApplicationController
   def index
-    @articles = Article.visible.order(relesed_at: :desc).limit(5)
+    @articles = Article.visible.order(released_at: :desc).limit(5)
     @articles = @articles.open_to_the_public unless current_member
   end
 

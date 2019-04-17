@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   #記事一覧
   def index
-    @articles = Article.order(relesed_at: :desc)
+    @articles = Article.order(released_at: :desc)
 
     @articles = @articles.open_to_the_public unless current_member
 
