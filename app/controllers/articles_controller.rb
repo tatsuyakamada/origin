@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
       articles = articles.visible
     end
 
-    @article = article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   #新規登録フォーム
