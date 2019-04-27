@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "bad_request" => "top#bad_request"
   get "forbidden" => "top#forbidden"
   get "internal_server_error" > "top#internal_server_error"
-  
+
   1.upto(18) do |n|
     get "lesson/step#{n}(/:name)" => "lesson#step#{n}"
   end
@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   resource :password, only: [:show, :edit, :update]
 
   resources :articles
-  resources :entries
+  resources :entries do
+    resources :images, controller: "entry_images"
+      patch :move_higher, :move_lower, on: :member
+  end
 end
