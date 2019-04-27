@@ -1,6 +1,6 @@
 module EntriesHelper
   def the_first_image(entry)
-    image = entry.images.order(:position[0])
+    image = entry.images.order(:position)[0]
 
     render_entry_image(image) if image
   end
